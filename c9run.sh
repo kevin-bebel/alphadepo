@@ -1,3 +1,4 @@
+rm -rf /tmp/somerepo
 go clean
 go build
-./server
+./alphadepo

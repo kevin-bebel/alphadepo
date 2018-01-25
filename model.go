@@ -1,5 +1,10 @@
 package main
 
+import (
+	"log"
+	"time"
+)
+
 type pushEvent struct {
 	After   string      `json:"after"`
 	BaseRef interface{} `json:"base_ref"`
@@ -263,3 +268,14 @@ type createEvent struct {
 		URL               string `json:"url"`
 	} `json:"sender"`
 }
+
+type Version struct {
+	App         string    `json:"app",storm:"index"`
+	Tag         string    `json:"tag",storm:"id"`
+	CurrentSHA  string    `json:"current_sha"`
+	PreviousSHA string    `json:"previous_sha"`
+	CreatedAt   time.Time `json:"created_at"`
+}
+
+var Info *log.Logger
+var Error *log.Logger
